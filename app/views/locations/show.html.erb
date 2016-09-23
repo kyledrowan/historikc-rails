@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-brand"><%= @location.name %></div>
+</nav>
+
+<div id="main-container">
+	<div class="row">
+
+		<% @location.photos.each_with_index do |photo, index| %>
+		  <div class="photo col-xs-6 col-md-3">
+		    <a href="<%= photo.image_url %>" class="thumbnail" data-width="<%= 1200 %>" data-height="<%= 800 %>" data-index="<%= index %>" data-caption="<%= photo.caption %>" data-summary="<%= photo.summary %>" data-pid="<%= photo.id %>">
+		      <%= image_tag( photo.image_url ) %>
+		      <div class="caption">
+		        <h4><%= photo.summary %></h4>
+		      </div>
+		    </a>
+		  </div>
+		<% end %>
+
+  </div>
+</div>
+
+<%= render 'photoswipe_gallery' %>
