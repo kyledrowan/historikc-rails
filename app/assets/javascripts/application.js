@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require leaflet
 //= require photoswipe
 //= require leaflet-hash
 //= require_tree .
+//= require turbolinks

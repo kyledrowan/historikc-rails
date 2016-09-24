@@ -15,7 +15,7 @@ gem 'photoswipe-rails'
 # Photo information via ContentDM system
 gem 'contentdm'
 
-# Add URL hash for linking to specific locations
+# Add URL hash for linking/returning to map location
 gem 'leaflet-hash-rails'
 
 # User analytics from Google Analytics
@@ -35,6 +35,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 group :development do
   gem 'spring'

@@ -1,4 +1,4 @@
-$(document).on('page:change', function() {
+$(document).ready(function() {
 	if ( $('#map-container').length ) {
 		var map = L.map('map-container', {zoomControl: false});
 		var icon = L.divIcon({className: 'location-icon'});
