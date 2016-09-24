@@ -1,4 +1,4 @@
-$(document).on('page:change', function() {
+$(document).ready(function() {
   if ( $('.pswp').length ) {
     $('.row').photoswipe({
       galleryPIDs: true,
