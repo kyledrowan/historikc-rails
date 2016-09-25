@@ -1,3 +1,11 @@
+// Set body height to full window size, taking into account mobile navigation bars
+$(document).ready(function () {
+	$('body').css('height', window.innerHeight == null ? $(window).height() : window.innerHeight);
+});
+$(window).resize(function () {
+	$('body').css('height', window.innerHeight == null ? $(window).height() : window.innerHeight);
+});
+
 $(document).ready(function() {
 	if ( $('#map-container').length ) {
 		var map = L.map('map-container', {zoomControl: false});
