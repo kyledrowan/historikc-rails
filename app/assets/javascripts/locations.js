@@ -1,5 +1,8 @@
 // Set body height to full window size, taking into account mobile navigation bars
-$(document).ready(function() {
+$(document).ready(function () {
+	$('body').css('height', window.innerHeight == null ? $(window).height() : window.innerHeight);
+});
+$(window).resize(function () {
 	$('body').css('height', window.innerHeight == null ? $(window).height() : window.innerHeight);
 });
 
