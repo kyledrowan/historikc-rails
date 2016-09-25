@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
 	def index
-    @locations = Photo.where.not(location_id: nil).to_a.map(&:location).uniq
+    @locations = Photo.where(active: true).where.not(location_id: nil).to_a.map(&:location).uniq
 
     respond_to do |format|
       format.html
