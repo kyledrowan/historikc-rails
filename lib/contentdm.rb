@@ -5,8 +5,8 @@ module ContentDM
 		class << self
 			CONTENTDM_URL = 'http://www.kchistory.org/cdm4/'
 			EXCLUDED_COLLECTIONS = ['Local', 'Sanborn']
-			TIMEOUT = 120
-			PAUSE = 15
+			TIMEOUT = 90
+			PAUSE = 2
 			RETRIES = 4
 
 
@@ -50,7 +50,7 @@ module ContentDM
 
 						Photo.create!(
 							name: record.metadata['dc.title'].first,
-							description: record.metadata['dc.description'].first,
+							description: record.metadata['dc.description'].first || '',
 							image_url: record.img_href,
 							thumbnail_url: record.thumbnail_href,
 							date: record.metadata['dc.date'].first,
