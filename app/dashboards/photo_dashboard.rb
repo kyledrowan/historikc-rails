@@ -44,6 +44,7 @@ class PhotoDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :location,
+    :active,
     :id,
     :name,
     :description,
@@ -57,7 +58,6 @@ class PhotoDashboard < Administrate::BaseDashboard
     :latitude,
     :longitude,
     :angle,
-    :active,
     :created_at,
     :updated_at,
   ].freeze
@@ -67,6 +67,7 @@ class PhotoDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :location,
+    :active,
     :name,
     :description,
     :date,
@@ -79,7 +80,6 @@ class PhotoDashboard < Administrate::BaseDashboard
     :latitude,
     :longitude,
     :angle,
-    :active,
   ].freeze
 
   # Overwrite this method to customize how photos are displayed
