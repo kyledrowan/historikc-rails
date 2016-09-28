@@ -3,8 +3,8 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
     	t.string :name, null: false
     	t.text :description, null: false
+      t.text :tags
       t.string :date
-      t.string :tags
 
       t.string :image_url, null: false
       t.string :thumbnail_url, null: false
