@@ -1,13 +1,13 @@
 module Content
 	def self.release(model)
 		timestamp = Time.now.strftime("%Y%m%d%H%M%S")
-		file_format = "_release_#{model.classify.underscore}.rb"
-		filename = "#{timestamp}#{file_format}"
-		releases = Dir.glob(Rails.root.join("db/migrate/*#{file_format}")).sort
+		file_format = "_release_#{model.classify.underscore}_"
+		filename = "#{timestamp}#{file_format}#{timestamp}.rb"
+		releases = Dir.glob(Rails.root.join("db/migrate/*#{file_format}*")).sort
 		last_release = releases.empty? ? Time.new(1850) : releases.last.slice(-filename.length, timestamp.length).to_time
 
 		File.open(Rails.root.join("db/migrate/#{filename}"), 'w') do |file|
-			file.puts "class Release#{model.classify} < ActiveRecord::Migration"
+			file.puts "class Release#{model.classify}#{timestamp} < ActiveRecord::Migration"
 			file.puts "  def change"
 
 			model.classify.constantize.where("created_at > ?", last_release).each do |item|
