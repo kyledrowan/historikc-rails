@@ -7,7 +7,7 @@
 
 		<% @location.photos.where(active: true).each_with_index do |photo, index| %>
 		  <div class="photo col-xs-6 col-md-3">
-		    <a href="<%= photo.image_url %>" class="thumbnail" data-width="<%= 1200 %>" data-height="<%= 800 %>" data-index="<%= index %>" data-caption="<%= photo.caption %>" data-summary="<%= photo.summary %>" data-pid="<%= photo.id %>">
+		    <a href="<%= photo.image_url %>" class="thumbnail" data-width="<%= 1200 %>" data-height="<%= 800 %>" data-index="<%= index %>" data-caption="<%= photo.caption %>" data-summary="<%= photo.summary %>" data-pid="<%= index %>">
 		      <%= image_tag( photo.image_url ) %>
 		      <div class="caption">
 		        <h4><%= photo.summary %></h4>
