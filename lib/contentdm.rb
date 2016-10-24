@@ -5,6 +5,7 @@ module ContentDM
 		class << self
 			CONTENTDM_URL = 'http://www.kchistory.org/cdm4/'
 			EXCLUDED_COLLECTIONS = ['Local', 'Sanborn']
+			FALSE_POSITIVES = ['Missouri', 'Kansas']
 			TIMEOUT = 90
 			PAUSE = 2
 			RETRIES = 4
@@ -66,10 +67,24 @@ module ContentDM
 				end
 			end
 
-			# Uses tags to assign photos to a location
+			def street_name(street)
+				street.gsub('Northeast', '').gsub('Northwest', '')
+					.gsub('Southeast', '').gsub('Southwest', '')
+					.gsub('East', '').gsub('West', '')
+					.gsub('North', '').gsub('South', '')
+					.gsub(/Street$/, '').gsub(/Terrace$/, '')
+					.gsub(/Boulevard$/, '').gsub(/Parkway$/, '')
+					.gsub(/Avenue$/, '').gsub(/Road$/, '')
+					.gsub(/Circle$/, '').gsub(/Place$/, '')
+					.gsub(/Lane$/, '').gsub(/Drive$/, '')
+					.gsub(/Trafficway$/, '')
+			end
+
 			def assign_locations
 				Photo.where(location_id: nil).each do |photo|
+					located = false
 
+					# Check tags to map locations
 					subjects = photo.tags.split('; ')
 					northerized = subjects.map { |subject| "North #{subject}" }
 					easterized = subjects.map { |subject| "East #{subject}" }
@@ -79,12 +94,31 @@ module ContentDM
 					combos = directionized.product(directionized)
 
 					combos.each do |subjects|
+						break if located
 
 						location = Location.find_by(street1: subjects.first, street2: subjects.second)
 						if location.present?
 							LOGGER.add 0, "INFO: Mapped photo ##{photo.id} to location ##{location.id}"
 							photo.location = location
 							photo.save!
+							located = true
+							break
+						end
+					end
+					break if located
+
+					# Parse the description to map locations
+					Location.all.each do |location|
+						street1 = street_name(location.street1).strip
+						street2 = street_name(location.street2).strip
+						next if street1.blank? || street2.blank? || street1 == street2
+						next if FALSE_POSITIVES.include?(street1) || FALSE_POSITIVES.include?(street2)
+
+						if photo.description.include?(street1) && photo.description.include?(street2)
+							LOGGER.add 0, "INFO: Mapped photo ##{photo.id} to location ##{location.id}"
+							photo.location = location
+							photo.save!
+							located = true
 							break
 						end
 					end
