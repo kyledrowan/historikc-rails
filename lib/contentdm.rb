@@ -5,7 +5,7 @@ module ContentDM
 		class << self
 			CONTENTDM_URL = 'http://www.kchistory.org/cdm4/'
 			EXCLUDED_COLLECTIONS = ['Local', 'Sanborn']
-			FALSE_POSITIVES = ['Missouri', 'Kansas']
+			COMMON_FALSE_POSITIVES = ['Missouri', 'Kansas', 'Park']
 			TIMEOUT = 90
 			PAUSE = 2
 			RETRIES = 4
@@ -112,7 +112,7 @@ module ContentDM
 						street1 = street_name(location.street1).strip
 						street2 = street_name(location.street2).strip
 						next if street1.blank? || street2.blank? || street1 == street2
-						next if FALSE_POSITIVES.include?(street1) || FALSE_POSITIVES.include?(street2)
+						next if COMMON_FALSE_POSITIVES.include?(street1) || COMMON_FALSE_POSITIVES.include?(street2)
 
 						if photo.description.include?(street1) && photo.description.include?(street2)
 							LOGGER.add 0, "INFO: Mapped photo ##{photo.id} to location ##{location.id}"
