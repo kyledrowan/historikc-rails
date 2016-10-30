@@ -17,5 +17,6 @@
 //= require leaflet
 //= require photoswipe
 //= require leaflet-hash
+//= require L.Control.Locate.min
 //= require_tree .
 //= require turbolinks

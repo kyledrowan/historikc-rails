@@ -74,6 +74,12 @@ nav {
 	font-size: medium;
 }
 
+.leaflet-control-locate {
+	.leaflet-bar-part {
+		padding-left: 0px;
+	}
+}
+
 @media only screen and (max-width: 1920px) and (min-width: 1025px) {
 	#watermark {
 		font-size: x-large;

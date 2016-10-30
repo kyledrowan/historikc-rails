@@ -10,6 +10,7 @@ $(document).ready(function() {
 	if ( $('#map-container').length ) {
 		var map = L.map('map-container', {zoomControl: false});
 		var icon = L.divIcon({className: 'location-icon'});
+		var currentLocationIcon = L.divIcon({className: 'user-location-icon'});
 
 		if(!window.location.hash) {
 			map.setView([39.091641, -94.581368], 14);
@@ -17,6 +18,17 @@ $(document).ready(function() {
 		var hash = new L.Hash(map);
 
 		L.control.zoom({position: 'bottomright'}).addTo(map);
+		L.control.locate({
+			position: 'bottomright',
+			drawCircle: false,
+			showPopup: false,
+			keepCurrentZoomLevel: true,
+			drawCircle: true,
+			drawMarker: false,
+			strings: {
+				title: 'Center on Current Location'
+			}
+		}).addTo(map);
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/historikc/cirimlxvl0002ggm07wdx9kn0/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
 		    attribution: '&copy; <a href="http://mapbox.com">Mapbox</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',

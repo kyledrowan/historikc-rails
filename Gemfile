@@ -28,6 +28,9 @@ gem 'bourbon'
 # Scrape photo dimensions from ContentDM pages
 gem 'mechanize'
 
+# Icons, etc
+gem 'font-awesome-rails'
+
 gem 'rails', '4.2.6'
 gem 'sqlite3'
 gem 'puma'
