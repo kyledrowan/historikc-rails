@@ -20,3 +20,9 @@ Style/Documentation:
 
 TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
+
+TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma

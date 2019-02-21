@@ -48,7 +48,7 @@ module ContentDM
                 LOGGER.add(
                   0,
                   'ERROR: Failed to get dimensions for photo with image_url '\
-                  "#{record.img_href}, message: #{e.message}"
+                  "#{record.img_href}, message: #{e.message}",
                 )
                 width = 0
                 height = 0
@@ -66,7 +66,7 @@ module ContentDM
               tags: record.metadata['dc.subject'].join('; '),
               width: width,
               height: height,
-              active: false
+              active: false,
             )
 
             # Pause to limit the load created from scraping the site

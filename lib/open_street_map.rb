@@ -66,14 +66,14 @@ module OpenStreetMap
                   streets.first,
                   streets.second,
                   streets.first,
-                  streets.second
+                  streets.second,
                 ).first
 
                 if lat_lon_duplicate.present?
                   LOGGER.add(
                     0,
                     'WARN: Found multiple street pairs at same lat/lon. '\
-                    "Found #{streets.first} & #{streets.last}, had #{street_duplicate}"
+                    "Found #{streets.first} & #{streets.last}, had #{street_duplicate}",
                   )
                 elsif streets.try(:length) != 2
                   LOGGER.add 0, "WARN: Node didn't have 2 ways #{streets} (#{node[:lat]}, #{node[:lon]})"
@@ -81,7 +81,7 @@ module OpenStreetMap
                   LOGGER.add(
                     0,
                     "INFO: Adding #{humanize_street(streets.first)} & #{humanize_street(streets.second)} "\
-                    'at midpoint & removed previous location'
+                    'at midpoint & removed previous location',
                   )
                   Location.create!(
                     latitude: (street_duplicate.latitude + node[:lat]) / 2,
@@ -89,7 +89,7 @@ module OpenStreetMap
                     active: false,
                     street1: streets.first,
                     street2: streets.second,
-                    name: "#{humanize_street(streets.first)} & #{humanize_street(streets.second)}"
+                    name: "#{humanize_street(streets.first)} & #{humanize_street(streets.second)}",
                   )
                   street_duplicate.destroy!
                 else
@@ -100,7 +100,7 @@ module OpenStreetMap
                     active: false,
                     street1: streets.first,
                     street2: streets.second,
-                    name: "#{humanize_street(streets.first)} & #{humanize_street(streets.second)}"
+                    name: "#{humanize_street(streets.first)} & #{humanize_street(streets.second)}",
                   )
                 end
               end
