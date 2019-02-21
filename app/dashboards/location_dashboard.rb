@@ -19,7 +19,7 @@ class LocationDashboard < Administrate::BaseDashboard
     street2: Field::String,
     active: Field::Boolean,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

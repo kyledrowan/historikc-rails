@@ -26,7 +26,7 @@ class PhotoDashboard < Administrate::BaseDashboard
     angle: Field::Number,
     active: Field::Boolean,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
