@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 # Mapping via Leaflet
@@ -31,19 +33,21 @@ gem 'mechanize'
 # Icons, etc
 gem 'font-awesome-rails'
 
-gem 'rails', '5.2.2'
-gem 'sqlite3'
-gem 'puma'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'puma'
+gem 'rails', '5.2.2'
+gem 'sass-rails', '~> 5.0'
+gem 'sqlite3'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
+
+gem 'rubocop', '0.62', require: false
 
 group :development do
   gem 'spring'
 end
 
 group :production do
-	gem 'mysql2'
+  gem 'mysql2'
 end

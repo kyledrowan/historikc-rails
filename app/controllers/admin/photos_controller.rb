@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class PhotosController < Admin::ApplicationController
     def index
@@ -25,7 +27,7 @@ module Admin
       render locals: {
         resources: resources,
         search_term: search_term,
-        page: page,
+        page: page
       }
     end
   end
