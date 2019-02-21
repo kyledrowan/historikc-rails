@@ -31,7 +31,7 @@ gem 'mechanize'
 # Icons, etc
 gem 'font-awesome-rails'
 
-gem 'rails', '4.2.6'
+gem 'rails', '5.2.2'
 gem 'sqlite3'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
