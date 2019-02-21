@@ -153,6 +153,7 @@ GEM
       ast (~> 2.4.0)
     photoswipe-rails (4.1.2)
     powerpack (0.1.2)
+    psych (3.1.0)
     puma (3.12.0)
     rack (2.0.6)
     rack-test (1.1.0)
@@ -186,11 +187,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    rubocop (0.62.0)
+    rubocop (0.65.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
       powerpack (~> 0.1)
+      psych (>= 3.1.0)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
@@ -260,7 +262,7 @@ DEPENDENCIES
   photoswipe-rails
   puma
   rails (= 5.2.2)
-  rubocop (= 0.62)
+  rubocop
   sass-rails (~> 5.0)
   spring
   sqlite3

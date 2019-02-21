@@ -42,9 +42,8 @@ gem 'sqlite3'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'rubocop', '0.62', require: false
-
 group :development do
+  gem 'rubocop', require: false
   gem 'spring'
 end
 
