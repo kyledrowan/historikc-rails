@@ -15,9 +15,12 @@ module ContentDM
       LOGGER = ActiveSupport::Logger.new('log/photos.log')
 
       # Pulls photos from ContentDM API and creates records
+
+      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength
       def create_photos
         harvester = ContentDm::Harvester.new(CONTENTDM_URL)
 
+        # rubocop:disable Metrics/BlockLength
         harvester.collections.each do |name, _desc|
           next if name.in? EXCLUDED_COLLECTIONS
 
@@ -42,7 +45,11 @@ module ContentDM
                 sleep(attempts < RETRIES ? PAUSE : TIMEOUT)
                 retry
               else
-                LOGGER.add 0, "ERROR: Failed to get dimensions for photo with image_url #{record.img_href}, message: #{e.message}"
+                LOGGER.add(
+                  0,
+                  'ERROR: Failed to get dimensions for photo with image_url '\
+                  "#{record.img_href}, message: #{e.message}"
+                )
                 width = 0
                 height = 0
               end
@@ -66,7 +73,9 @@ module ContentDM
             sleep 5
           end
         end
+        # rubocop:enable Metrics/BlockLength
       end
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
 
       def street_name(street)
         street.gsub('Northeast', '').gsub('Northwest', '')
@@ -81,7 +90,9 @@ module ContentDM
               .gsub(/Trafficway$/, '')
       end
 
+      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
       def assign_locations
+        # rubocop:disable Metrics/BlockLength
         Photo.where(location_id: nil).each do |photo|
           located = false
 
@@ -94,10 +105,10 @@ module ContentDM
           directionized = subjects + northerized + easterized + southerized + westerized
           combos = directionized.product(directionized)
 
-          combos.each do |subjects|
+          combos.each do |combo|
             break if located
 
-            location = Location.find_by(street1: subjects.first, street2: subjects.second)
+            location = Location.find_by(street1: combo.first, street2: combo.second)
             next if location.blank?
 
             LOGGER.add 0, "INFO: Mapped photo ##{photo.id} to location ##{location.id}"
@@ -124,7 +135,9 @@ module ContentDM
             break
           end
         end
+        # rubocop:enable Metrics/BlockLength
       end
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength
     end
   end
 end

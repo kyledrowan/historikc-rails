@@ -4,7 +4,7 @@ class Photo < ApplicationRecord
   belongs_to :location
 
   def summary
-    "#{name} (#{date == 0 ? 'date unknown' : date})"
+    "#{name} (#{date.zero? ? 'date unknown' : date})"
   end
 
   def caption

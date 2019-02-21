@@ -14,6 +14,7 @@ module OpenStreetMap
 
       LOGGER = ActiveSupport::Logger.new('log/locations.log')
 
+      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength
       def create_locations
         LOGGER.add 0, 'INFO: Beginning location generation'
         overpass = OverpassAPI.new(timeout: TIMEOUT, json: true)
@@ -21,6 +22,7 @@ module OpenStreetMap
         row = 0
         total = 0
 
+        # rubocop:disable Metrics/BlockLength
         (GLOBAL_BOUNDARIES[:s]...GLOBAL_BOUNDARIES[:n]).step(STEP) do |ns|
           row += 1
           column = 0
@@ -60,15 +62,27 @@ module OpenStreetMap
                 lat_lon_duplicate = Location.where(latitude: node[:lat], longitude: node[:lon]).first
 
                 street_duplicate = Location.where(
-                  '(street1 = ? AND street2 = ?) OR (street2 = ? AND street1 = ?)', streets.first, streets.second, streets.first, streets.second
+                  '(street1 = ? AND street2 = ?) OR (street2 = ? AND street1 = ?)',
+                  streets.first,
+                  streets.second,
+                  streets.first,
+                  streets.second
                 ).first
 
                 if lat_lon_duplicate.present?
-                  LOGGER.add 0, "WARN: Found multiple street pairs at same lat/lon. Found #{streets.first} & #{streets.last}, had #{street_duplicate}"
+                  LOGGER.add(
+                    0,
+                    'WARN: Found multiple street pairs at same lat/lon. '\
+                    "Found #{streets.first} & #{streets.last}, had #{street_duplicate}"
+                  )
                 elsif streets.try(:length) != 2
                   LOGGER.add 0, "WARN: Node didn't have 2 ways #{streets} (#{node[:lat]}, #{node[:lon]})"
                 elsif street_duplicate.present?
-                  LOGGER.add 0, "INFO: Adding #{humanize_street(streets.first)} & #{humanize_street(streets.second)} at midpoint & removed previous location"
+                  LOGGER.add(
+                    0,
+                    "INFO: Adding #{humanize_street(streets.first)} & #{humanize_street(streets.second)} "\
+                    'at midpoint & removed previous location'
+                  )
                   Location.create!(
                     latitude: (street_duplicate.latitude + node[:lat]) / 2,
                     longitude: (street_duplicate.longitude + node[:lon]) / 2,
@@ -102,9 +116,11 @@ module OpenStreetMap
               sleep(PAUSE)
             end
           end
+          # rubocop:enable Metrics/BlockLength
         end
         LOGGER.add 0, "INFO: Total requests: #{total}"
       end
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
 
       private
 
@@ -119,6 +135,7 @@ module OpenStreetMap
               .gsub(/Circle$/, 'Cir').gsub(/Place$/, 'Pl')
               .gsub(/Lane$/, 'Ln').gsub(/Drive$/, 'Dr')
       end
+      # rubocop:enable Metrics/AbcSize
 
       def strip_direction(street)
         return nil if street.nil?

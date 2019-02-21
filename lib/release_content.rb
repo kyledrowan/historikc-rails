@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 module Content
+  # rubocop:disable Metrics/AbcSize
   def self.release(model)
-    timestamp = Time.now.strftime('%Y%m%d%H%M%S')
+    timestamp = Time.current.strftime('%Y%m%d%H%M%S')
     file_format = "_release_#{model.classify.underscore}_"
     filename = "#{timestamp}#{file_format}#{timestamp}.rb"
     releases = Dir.glob(Rails.root.join("db/migrate/*#{file_format}*")).sort
-    last_release = releases.empty? ? Time.new(1850) : releases.last.slice(-filename.length, timestamp.length).to_time
+    last_release = releases.empty? ? Time.current(1850) : releases.last.slice(-filename.length, timestamp.length)
 
     File.open(Rails.root.join("db/migrate/#{filename}"), 'w') do |file|
       file.puts "class Release#{model.classify}#{timestamp} < ActiveRecord::Migration"
@@ -32,4 +33,5 @@ module Content
 
     ActiveRecord::Base.connection.execute("INSERT INTO schema_migrations (version) VALUES(#{timestamp})")
   end
+  # rubocop:enable Metrics/AbcSize
 end
