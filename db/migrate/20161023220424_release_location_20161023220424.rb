@@ -1,4 +1,4 @@
-class ReleaseLocation20161023220424 < ActiveRecord::Migration
+class ReleaseLocation20161023220424 < ActiveRecord::Migration[4.2]
   def change
     Location.create!(id: '15270', name: 'Admiral Blvd & Grand Blvd', latitude: '39.105424', longitude: '-94.580551', street1: 'Admiral Blvd', street2: 'Grand Blvd', active: 'true', created_at: '2016-10-23 20:34:10 UTC', updated_at: '2016-10-23 20:34:10 UTC', ) 
 

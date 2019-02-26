@@ -10,7 +10,7 @@ module Content
     last_release = releases.empty? ? Time.current(1850) : releases.last.slice(-filename.length, timestamp.length)
 
     File.open(Rails.root.join("db/migrate/#{filename}"), 'w') do |file|
-      file.puts "class Release#{model.classify}#{timestamp} < ActiveRecord::Migration"
+      file.puts "class Release#{model.classify}#{timestamp} < ActiveRecord::Migration[4.2]"
       file.puts '  def change'
 
       model.classify.constantize.where('created_at > ?', last_release).each do |item|

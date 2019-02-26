@@ -38,11 +38,12 @@ gem 'jquery-turbolinks'
 gem 'puma'
 gem 'rails', '5.2.2'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
+  gem 'pry'
   gem 'rubocop', require: false
   gem 'spring'
 end

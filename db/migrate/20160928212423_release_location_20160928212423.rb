@@ -1,4 +1,4 @@
-class ReleaseLocation20160928212423 < ActiveRecord::Migration
+class ReleaseLocation20160928212423 < ActiveRecord::Migration[4.2]
   def change
     Location.create!(id: '7306', name: 'W 75th St & Sagamore Rd', latitude: '38.9931707', longitude: '-94.6099585', street1: 'West 75th Street', street2: 'Sagamore Road', active: 'true', created_at: '2016-09-06 02:45:35 UTC', updated_at: '2016-09-06 02:45:35 UTC', )
     Location.create!(id: '7307', name: 'W 75th St & State Line Rd', latitude: '38.9929761', longitude: '-94.60796', street1: 'West 75th Street', street2: 'State Line Road', active: 'true', created_at: '2016-09-06 02:45:35 UTC', updated_at: '2016-09-06 02:45:35 UTC', )

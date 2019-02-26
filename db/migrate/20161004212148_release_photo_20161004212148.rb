@@ -1,4 +1,4 @@
-class ReleasePhoto20161004212148 < ActiveRecord::Migration
+class ReleasePhoto20161004212148 < ActiveRecord::Migration[4.2]
   def change
 
     Photo.find(10014).update!(id: '10014', name: 'Country Club Plaza', description: 'Aerial view of Country Club Plaza area, looking northeast near 55th and Ward Parkway.  Parts of Loose Park are in view and Brush Creek is not paved.', date: 'ca. 1930', tags: 'Aerial photographs; Country Club Plaza; Country Club District; Brush Creek; Aerials; Loose Park', image_url: 'http://www.kchistory.org/cgi-bin/getimage.exe?CISOROOT=/Curtiss&CISOPTR=173&DMSCALE=100&DMWIDTH=0&DMHEIGHT=0&DMX=0&DMY=0&DMTEXT=&DMTHUMB=&DMROTATE=0', thumbnail_url: 'http://www.kchistory.org/cgi-bin/thumbnail.exe?CISOROOT=/Curtiss&CISOPTR=173', width: '750', height: '635', address: '', latitude: '', longitude: '', angle: '', location_id: '8981', active: 'true', created_at: '2016-09-23 16:18:14 UTC', updated_at: '2016-10-01 17:37:51 UTC', ) 
