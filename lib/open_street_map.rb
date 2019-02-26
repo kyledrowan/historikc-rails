@@ -36,7 +36,7 @@ module OpenStreetMap
 
             begin
               attempts += 1
-              overpass.query(query(boundaries)).slice_before { |result| result[:type] == 'node'	}.each do |node_set|
+              overpass.query(query(boundaries)).slice_before { |result| result[:type] == 'node'  }.each do |node_set|
                 node_group = node_set.group_by { |item| item[:type] }
 
                 streets = node_group['way']
@@ -167,14 +167,14 @@ module OpenStreetMap
             <query type="node">
               <item set="n2"/>
               <item set="n3"/>
-            	<bbox-query n="#{boundaries[:n]}" e="#{boundaries[:e]}" s="#{boundaries[:s]}" w="#{boundaries[:w]}"/>
+              <bbox-query n="#{boundaries[:n]}" e="#{boundaries[:e]}" s="#{boundaries[:s]}" w="#{boundaries[:w]}"/>
             </query>
             <foreach>
               <union>
                 <item/>
                 <recurse type="node-way"/>
               </union>
-          	<print/>
+            <print/>
             </foreach>
           </foreach>
         QUERY

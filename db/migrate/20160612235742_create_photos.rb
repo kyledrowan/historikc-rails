@@ -1,8 +1,8 @@
 class CreatePhotos < ActiveRecord::Migration[4.2]
   def change
     create_table :photos do |t|
-    	t.string :name, null: false
-    	t.text :description, null: false
+      t.string :name, null: false
+      t.text :description, null: false
       t.text :tags
       t.string :date
 
@@ -16,7 +16,7 @@ class CreatePhotos < ActiveRecord::Migration[4.2]
       t.decimal :longitude
       t.integer :angle
 
-    	t.integer :location_id
+      t.integer :location_id
 
       t.boolean :active, null: false
       t.timestamps null: false
