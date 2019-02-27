@@ -1,4 +1,4 @@
-class ReleasePhoto20160929223025 < ActiveRecord::Migration
+class ReleasePhoto20160929223025 < ActiveRecord::Migration[4.2]
   def change
 
     Photo.find(10020).update!(id: '10020', name: 'Penn Valley Park', description: 'Aerial view looking northwest near 33rd and Summit.  The Liberty Memorial is in view as well as distant view of Hospital Hill.', date: 'ca. 1930', tags: 'Aerial photographs; Aerials; Liberty Memorial; Main Street; 31st Street; Midtown', image_url: 'http://www.kchistory.org/cgi-bin/getimage.exe?CISOROOT=/Curtiss&CISOPTR=179&DMSCALE=100&DMWIDTH=0&DMHEIGHT=0&DMX=0&DMY=0&DMTEXT=&DMTHUMB=&DMROTATE=0', thumbnail_url: 'http://www.kchistory.org/cgi-bin/thumbnail.exe?CISOROOT=/Curtiss&CISOPTR=179', width: '750', height: '635', address: '', latitude: '', longitude: '', angle: '', location_id: '11504', active: 'true', created_at: '2016-09-23 16:20:27 UTC', updated_at: '2016-09-30 03:23:50 UTC', ) 

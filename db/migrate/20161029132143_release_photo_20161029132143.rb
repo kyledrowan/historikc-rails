@@ -1,4 +1,4 @@
-class ReleasePhoto20161029132143 < ActiveRecord::Migration
+class ReleasePhoto20161029132143 < ActiveRecord::Migration[4.2]
   def change
 
     Photo.find(10118).update!(id: '10118', name: 'Washburn-Crosby Milling Company', description: 'Photograph shows Washburn-Crosby flour Mill (Liberty Mill) in East Bottoms.  Railroad tracks and Union Pacific rail car visible in front of buildings.', date: '', tags: 'Millers; Flour & meal industry;; Washburn-Crosby Milling Company; East Bottoms;', image_url: 'http://www.kchistory.org/cgi-bin/getimage.exe?CISOROOT=/Askren&CISOPTR=50&DMSCALE=100&DMWIDTH=0&DMHEIGHT=0&DMX=0&DMY=0&DMTEXT=&DMTHUMB=&DMROTATE=0', thumbnail_url: 'http://www.kchistory.org/cgi-bin/thumbnail.exe?CISOROOT=/Askren&CISOPTR=50', width: '750', height: '636', address: '', latitude: '', longitude: '', angle: '', location_id: '14679', active: 'true', created_at: '2016-09-23 16:55:18 UTC', updated_at: '2016-10-28 15:01:39 UTC', ) 

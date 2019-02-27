@@ -1,11 +1,13 @@
-class Photo < ActiveRecord::Base
-	belongs_to :location
+# frozen_string_literal: true
 
-	def summary
-		"#{name} (#{date == 0 ? 'date unknown' : date})"
-	end
+class Photo < ApplicationRecord
+  belongs_to :location
 
-	def caption
-		"#{summary} - #{description}"
-	end
+  def summary
+    "#{name} (#{date.to_i.zero? ? 'date unknown' : date})"
+  end
+
+  def caption
+    "#{summary} - #{description}"
+  end
 end

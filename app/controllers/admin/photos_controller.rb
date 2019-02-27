@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 module Admin
   class PhotosController < Admin::ApplicationController
+    # rubocop:disable Metrics/AbcSize
     def index
       search_term = params[:search].to_s.strip
-      resources = Administrate::Search.new(resource_resolver, search_term).run
+      resources = Administrate::Search.new(scoped_resource, dashboard_class, search_term).run
 
       case params[:location_mapped]
       when 'true'
@@ -26,7 +29,9 @@ module Admin
         resources: resources,
         search_term: search_term,
         page: page,
+        show_search_bar: true,
       }
     end
+    # rubocop:enable Metrics/AbcSize
   end
 end

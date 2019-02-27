@@ -1,4 +1,4 @@
-class ReleasePhoto20161023223006 < ActiveRecord::Migration
+class ReleasePhoto20161023223006 < ActiveRecord::Migration[4.2]
   def change
 
     Photo.find(10022).update!(id: '10022', name: 'Union Station', description: 'Aerial view, looking north, of Union Station;  also shows BMA Building and a portion of Main Street.', date: 'ca. 1930', tags: 'Aerial photographs; Union Station; Aerials; Main Street; BMA Building (Pershing Road)', image_url: 'http://www.kchistory.org/cgi-bin/getimage.exe?CISOROOT=/Curtiss&CISOPTR=181&DMSCALE=100&DMWIDTH=0&DMHEIGHT=0&DMX=0&DMY=0&DMTEXT=&DMTHUMB=&DMROTATE=0', thumbnail_url: 'http://www.kchistory.org/cgi-bin/thumbnail.exe?CISOROOT=/Curtiss&CISOPTR=181', width: '750', height: '635', address: '', latitude: '', longitude: '', angle: '', location_id: '15268', active: 'true', created_at: '2016-09-23 16:21:09 UTC', updated_at: '2016-10-24 02:45:25 UTC', )

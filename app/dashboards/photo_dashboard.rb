@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'administrate/base_dashboard'
 
 class PhotoDashboard < Administrate::BaseDashboard
@@ -32,54 +34,54 @@ class PhotoDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :name,
-    :description,
-    :location,
-    :date,
-    :active,
+  COLLECTION_ATTRIBUTES = %i[
+    name
+    description
+    location
+    date
+    active
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :location,
-    :active,
-    :id,
-    :name,
-    :description,
-    :date,
-    :tags,
-    :image_url,
-    :thumbnail_url,
-    :width,
-    :height,
-    :address,
-    :latitude,
-    :longitude,
-    :angle,
-    :created_at,
-    :updated_at,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    location
+    active
+    id
+    name
+    description
+    date
+    tags
+    image_url
+    thumbnail_url
+    width
+    height
+    address
+    latitude
+    longitude
+    angle
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :location,
-    :active,
-    :name,
-    :description,
-    :date,
-    :tags,
-    :image_url,
-    :thumbnail_url,
-    :width,
-    :height,
-    :address,
-    :latitude,
-    :longitude,
-    :angle,
+  FORM_ATTRIBUTES = %i[
+    location
+    active
+    name
+    description
+    date
+    tags
+    image_url
+    thumbnail_url
+    width
+    height
+    address
+    latitude
+    longitude
+    angle
   ].freeze
 
   # Overwrite this method to customize how photos are displayed

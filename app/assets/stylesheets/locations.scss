@@ -3,85 +3,84 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body, html {
-	margin: 0px;
-	width: 100%;
-	height: 100%;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 nav {
-	.back-link {
-		height: 100%;
-		color: white !important;
-		text-decoration: none;
-		font-size: large;
-		vertial-align: center;
-	}
+  .back-link {
+    height: 100%;
+    color: white !important;
+    text-decoration: none;
+    font-size: large;
+  }
 
-	.navbar-brand {
-	  float: none;
-		text-align: center;
-		font-family: 'Milonga', sans;
-		color: white !important;
+  .navbar-brand {
+    float: none;
+    text-align: center;
+    font-family: 'Milonga', sans;
+    color: white !important;
     position: absolute;
     width: 100%;
     left: 0;
     top: 0;
     text-align: center;
     margin: auto;
-	  height:100%;
-	}
+    height:100%;
+  }
 }
 
 #main-container {
-	padding: 20px;
-	padding-top: 70px;
+  padding: 20px;
+  padding-top: 70px;
 
-	a:hover {
-		text-decoration: none;
-	}
+  a:hover {
+    text-decoration: none;
+  }
 
-	.thumbnail {
-		img {
-			width: 100%;
-			height: 100%;
-		}
-	}
+  .thumbnail {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 #map-container {
-	padding: 0px;
-	height: 100%;
-	width: 100%;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
 
-	.location-icon {
-		border-radius: 50%;
-		background-color: #0C6CDF;
-		border: 1px solid black;
-		width: 14px;
-		height: 14px;
-	}
+  .location-icon {
+    border-radius: 50%;
+    background-color: #0C6CDF;
+    border: 1px solid black;
+    width: 14px;
+    height: 14px;
+  }
 }
 
 #watermark {
-	cursor: pointer;
-	position: fixed;
-	z-index: 99;
-	top: 20px;
-	right: 20px;
-	font-family: 'Milonga', sans;
-	color: black;
-	text-decoration: none;
-	font-size: medium;
+  cursor: pointer;
+  position: fixed;
+  z-index: 99;
+  top: 20px;
+  right: 20px;
+  font-family: 'Milonga', sans;
+  color: black;
+  text-decoration: none;
+  font-size: medium;
 }
 
 .leaflet-control-locate {
-	.leaflet-bar-part {
-		padding-left: 0px;
-	}
+  .leaflet-bar-part {
+    padding-left: 0px;
+  }
 }
 
 @media only screen and (max-width: 1920px) and (min-width: 1025px) {
-	#watermark {
-		font-size: x-large;
-	}
+  #watermark {
+    font-size: x-large;
+  }
 }
