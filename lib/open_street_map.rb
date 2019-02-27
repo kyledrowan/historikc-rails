@@ -36,7 +36,7 @@ module OpenStreetMap
 
             begin
               attempts += 1
-              overpass.query(query(boundaries)).slice_before { |result| result[:type] == 'node'  }.each do |node_set|
+              overpass.query(query(boundaries)).slice_before { |result| result[:type] == 'node' }.each do |node_set|
                 node_group = node_set.group_by { |item| item[:type] }
 
                 streets = node_group['way']
