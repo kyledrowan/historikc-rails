@@ -32,9 +32,12 @@ It renders the `_table` partial to display details about the resources.
     <%= content_for(:title) %>
   </h1>
 
+  <%= render('settings_checkbox', name: 'Location Mapped', value: params[:location_mapped]) %>
+  <%= render('settings_checkbox', name: 'Active', value: params[:active]) %>
+
   <% if show_search_bar %>
     <%= render(
-      "search",
+      'search',
       search_term: search_term,
       resource_name: display_resource_name(page.resource_name)
     ) %>
@@ -43,7 +46,7 @@ It renders the `_table` partial to display details about the resources.
   <div>
     <%= link_to(
       t(
-        "administrate.actions.new_resource",
+        'administrate.actions.new_resource',
         name: page.resource_name.titleize.downcase
       ),
       [:new, namespace, page.resource_path],
@@ -54,12 +57,12 @@ It renders the `_table` partial to display details about the resources.
 
 <section class="main-content__body main-content__body--flush">
   <%= render(
-    "collection",
+    'collection',
     collection_presenter: page,
     collection_field_name: resource_name,
     page: page,
     resources: resources,
-    table_title: "page-title"
+    table_title: 'page-title'
   ) %>
 
   <%= paginate resources %>
