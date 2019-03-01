@@ -6,8 +6,11 @@ Rails.application.routes.draw do
 
   if Rails.env.development?
     namespace :admin do
-      root to: 'locations#index'
+      root to: 'photos#index'
       resources :locations, :photos
     end
   end
+
+  get 'auth/oauth2/callback' => 'auth0#callback'
+  get 'auth/failure' => 'auth0#failure'
 end

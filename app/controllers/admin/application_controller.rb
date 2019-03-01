@@ -8,6 +8,8 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
+    include Secured
+
     before_action :ensure_dev
 
     def ensure_dev
