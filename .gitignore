@@ -14,3 +14,7 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Secret
+.gitsecret/keys/random_seed
+config/initializers/auth0.rb
