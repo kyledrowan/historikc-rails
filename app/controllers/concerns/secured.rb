@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Secured
   extend ActiveSupport::Concern
 
@@ -6,6 +8,6 @@ module Secured
   end
 
   def logged_in_using_omniauth?
-    redirect_to '/auth/auth0' unless session[:userinfo].present?
+    redirect_to '/auth/auth0' if session[:userinfo].blank?
   end
 end
