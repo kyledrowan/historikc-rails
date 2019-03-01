@@ -13,6 +13,8 @@ gem 'jquery-turbolinks'
 gem 'leaflet-hash-rails' # Add URL hash for linking/returning to map location
 gem 'leaflet-rails' # Mapping via Leaflet
 gem 'mechanize' # Scrape photo dimensions from ContentDM pages
+gem 'omniauth', '~> 1.6.1' # Auth
+gem 'omniauth-auth0', '~> 2.0.0'
 gem 'overpass-api-ruby' # Locations from the OpenStreetMap API Client
 gem 'photoswipe-rails' # Images displayed by PhotoSwipe
 gem 'puma'
