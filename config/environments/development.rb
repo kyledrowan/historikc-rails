@@ -45,6 +45,6 @@ Rails.application.configure do
     message_key = env['omniauth.error.type']
     error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
     new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}&error_description=#{error_description}"
-    Rack::Response.new(['401 Unauthorized'], 401, 'Location' => new_path).finish
+    Rack::Response.new.redirect(new_path, 401).finish
   }
 end
