@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
     @locations = Photo.where(active: true).where.not(location_id: nil).to_a.map(&:location).uniq
 
     respond_to do |format|
-      format.html
+      format.html { render :index, layout: ENV['ENABLE_VIEW'].present? ? 'application' : 'downtime' }
       format.json { render json: @locations }
     end
   end
@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     respond_to do |format|
-      format.html
+      format.html { render :show, layout: ENV['ENABLE_VIEW'].present? ? 'application' : 'downtime' }
       format.json { render json: @location.to_json(include: :photos) }
     end
   end
