@@ -50,4 +50,6 @@ Rails.application.configure do
       "failure?message=#{message_key}&error_description=#{error_description}"
     Rack::Response.new(['302 Moved'], 302, 'Location' => new_path).finish
   }
+
+  ENV['ENABLE_VIEW'] = 'true'
 end
