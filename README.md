@@ -28,5 +28,5 @@ for more information.
 * `brew install git-secret`
 * Create a gpg key/secret, and send your public key to someone who has access to the secret
 * They need to run `gpg --import KEY_NAME.txt`, `git secret tell youremail@example.com`, `git secret reveal; git secret hide`, then commit the changes
-* Run `git secret hide` to decrypt the secret file (`config/initializers/auth0.rb`)
+* Run `git secret reveal` to decrypt the secret file (`config/initializers/auth0.rb`)
 * When changing the secret file, you must run `git secret hide` before committing. To make this a pre-commit hook, run `echo "git secret hide\ngit add config/initializers/auth0.rb.secret" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit`
