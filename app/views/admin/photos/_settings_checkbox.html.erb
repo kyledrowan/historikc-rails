@@ -1,0 +1,21 @@
+<span class="settings-name"><%= name %></span>
+<span class="settings-checkbox">
+  <input
+    type="checkbox"
+    name=<%= name.parameterize(separator: '_') %>
+    id=<%= "#{name.parameterize(separator: '_')}-true" %>
+    value="true"
+    <%= value.nil? || value == 'true' ? 'checked' : '' %>
+  />
+  <label for=<%= "#{name.parameterize(separator: '_')}-true" %> >True</label>
+</span>
+<span class="settings-checkbox">
+  <input
+    type="checkbox"
+    name=<%= name.parameterize(separator: '_') %>
+    id=<%= "#{name.parameterize(separator: '_')}-false" %>
+    value="false"
+    <%= value.nil? || value == 'false' ? 'checked' : '' %>
+  />
+  <label for=<%= "#{name.parameterize(separator: '_')}-false" %>>False</label>
+</span>
