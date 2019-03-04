@@ -10,7 +10,7 @@
 @import "leaflet";
 @import "locations";
 
-.downtime-message {
+.downtime-message, .access-denied-message {
   width: 80%;
   margin: 0 auto;
 }
