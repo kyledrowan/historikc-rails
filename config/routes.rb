@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'photos#index'
     resources :locations, :photos
-    get 'logout' => 'admin/logout#logout'
+    get 'logout' => 'logout#logout'
   end
 
   get 'auth/oauth2/callback' => 'auth0#callback'
