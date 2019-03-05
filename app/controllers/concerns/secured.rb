@@ -8,6 +8,6 @@ module Secured
   end
 
   def logged_in_using_omniauth?
-    redirect_to '/auth/auth0' if session[:userinfo].blank?
+    redirect_to '/auth/auth0' if session[:userinfo].blank? && params[:controller] != 'admin/logout'
   end
 end
