@@ -10,12 +10,6 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     include Secured
 
-    before_action :ensure_dev
-
-    def ensure_dev
-      raise StandardError unless Rails.env.development?
-    end
-
     def records_per_page
       params[:per_page] || 50
     end
