@@ -18,3 +18,15 @@ Have an idea and the time to implement it? Awesome, submit a pull request and I'
 
 HistoriKC Rails is released under the Apache v2.0 License. See the [LICENSE file](https://github.com/kyledrowan/historikc-rails/blob/master/LICENSE)
 for more information.
+
+# Getting Started with Development
+* `gem install bundler`
+* `bundle`
+
+## To test Authorization:
+* Prerequisites: `gpg`
+* `brew install git-secret`
+* Create a gpg key/secret, and send your public key to someone who has access to the secret
+* They need to run `gpg --import KEY_NAME.txt`, `git secret tell youremail@example.com`, `git secret reveal; git secret hide`, then commit the changes
+* Run `git secret reveal` to decrypt the secret file (`config/initializers/auth0_1_secret.rb`)
+* When changing the secret file, you must run `git secret hide` before committing.

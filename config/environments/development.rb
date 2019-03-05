@@ -38,8 +38,18 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.cache_store = :memory_store
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  OmniAuth.config.on_failure = proc { |env|
+    message_key = env['omniauth.error.type']
+    error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
+    new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/" \
+      "failure?message=#{message_key}&error_description=#{error_description}"
+    Rack::Response.new(['302 Moved'], 302, 'Location' => new_path).finish
+  }
 
   ENV['ENABLE_VIEW'] = 'true'
 end

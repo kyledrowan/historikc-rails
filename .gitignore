@@ -1,6 +1,8 @@
 # Ignore bundler config.
 /.bundle
 
+.DS_Store
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -14,3 +16,7 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Secret
+.gitsecret/keys/random_seed
+config/initializers/auth0_1_secret.rb

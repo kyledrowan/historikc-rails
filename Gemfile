@@ -2,39 +2,21 @@
 
 source 'https://rubygems.org'
 
-# Mapping via Leaflet
-gem 'leaflet-rails'
-
-# UI components from Boostrap
-gem 'bootstrap-sass'
-
-# Locations from the OpenStreetMap API Client
-gem 'overpass-api-ruby'
-
-# Images displayed by PhotoSwipe
-gem 'photoswipe-rails'
-
-# Photo information via ContentDM system
-gem 'contentdm'
-
-# Add URL hash for linking/returning to map location
-gem 'leaflet-hash-rails'
-
-# User analytics from Google Analytics
-gem 'google-analytics-rails'
-
-# Generate an administration panel
-gem 'administrate'
+gem 'administrate' # Generate an administration panel
+gem 'bootstrap-sass' # UI components from Boostrap
 gem 'bourbon'
-
-# Scrape photo dimensions from ContentDM pages
-gem 'mechanize'
-
-# Icons, etc
-gem 'font-awesome-rails'
-
+gem 'contentdm' # Photo information via ContentDM system
+gem 'font-awesome-rails' # Icons, etc
+gem 'google-analytics-rails' # User analytics from Google Analytics
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'leaflet-hash-rails' # Add URL hash for linking/returning to map location
+gem 'leaflet-rails' # Mapping via Leaflet
+gem 'mechanize' # Scrape photo dimensions from ContentDM pages
+gem 'omniauth', '~> 1.6.1' # Auth
+gem 'omniauth-auth0', '~> 2.0.0'
+gem 'overpass-api-ruby' # Locations from the OpenStreetMap API Client
+gem 'photoswipe-rails' # Images displayed by PhotoSwipe
 gem 'puma'
 gem 'rails', '5.2.2'
 gem 'sass-rails', '~> 5.0'
