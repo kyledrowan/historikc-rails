@@ -5,15 +5,15 @@ $(document).ready(function() {
       indexIndicatorSep: ' of ',
       shareButtons: [
         {
-          id:'twitter',
-          label:'Tweet',
-          url:'https://twitter.com/intent/tweet?text={{text}} via @HistoriKC&url={{url}}'
+          id: 'twitter',
+          label: 'Tweet',
+          url: 'https://twitter.com/intent/tweet?text={{text}} via @HistoriKC&url={{url}}'
         }
         // Facebook sharing pending Open Graph tags, see https://developers.facebook.com/docs/sharing/web
-        // {id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u={{url}}'}
+        // { id: 'facebook', label: 'Share on Facebook', url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}' }
       ],
       getTextForShare: function(shareButtonData) {
-        return $("[data-pid='" + this['index'] + "']").data('summary') || '';
+        return $('[data-pid="' + this['index'] + '"]').data('summary') || '';
       }
     });
   }
