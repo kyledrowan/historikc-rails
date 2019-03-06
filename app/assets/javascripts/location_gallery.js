@@ -13,7 +13,7 @@ $(document).ready(function() {
         // {id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u={{url}}'}
       ],
       getTextForShare: function(shareButtonData) {
-        return $("[data-pid='" + this['index'] + "']").data('summary') || '';
+        return $('[data-pid="' + this['index'] + '"]').data('summary') || '';
       }
     });
   }

@@ -43,7 +43,7 @@ $(document).ready(function() {
     });
 
     $.ajax({
-      url: "/locations.json",
+      url: '/locations.json',
       success: function(locations) {
         $.each(locations, function(i, location) {
           marker = L.marker([location.latitude, location.longitude], { icon: icon, riseOnHover: true, title: location.name }).addTo(map);
