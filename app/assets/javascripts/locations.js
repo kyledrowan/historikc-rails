@@ -1,23 +1,23 @@
 // Set body height to full window size, taking into account mobile navigation bars
-$(document).ready(function () {
+$(document).ready(function() {
   $('body').css('height', window.innerHeight == null ? $(window).height() : window.innerHeight);
 });
-$(window).resize(function () {
+$(window).resize(function() {
   $('body').css('height', window.innerHeight == null ? $(window).height() : window.innerHeight);
 });
 
 $(document).ready(function() {
-  if ( $('#map-container').length ) {
-    var map = L.map('map-container', {zoomControl: false});
-    var icon = L.divIcon({className: 'location-icon'});
-    var currentLocationIcon = L.divIcon({className: 'user-location-icon'});
+  if ($('#map-container').length) {
+    var map                 = L.map('map-container', {zoomControl: false}),
+        icon                = L.divIcon({className: 'location-icon'}),
+        currentLocationIcon = L.divIcon({className: 'user-location-icon'}),
+        hash                = new L.Hash(map);
 
-    if(!window.location.hash) {
+    if (!window.location.hash) {
       map.setView([39.091641, -94.581368], 14);
     }
-    var hash = new L.Hash(map);
 
-    L.control.zoom({position: 'bottomright'}).addTo(map);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
     L.control.locate({
       position: 'bottomright',
       drawCircle: false,
@@ -37,23 +37,23 @@ $(document).ready(function() {
         accessToken: 'pk.eyJ1IjoiaGlzdG9yaWtjIiwiYSI6ImNpcG5hZWd1NjAwMGN0dG5pdnA1NGxmcTEifQ.i5Cs1vhsdiOIuEyr4eU2uQ'
     }).addTo(map);
 
-    map.on('zoomend', function(){
+    map.on('zoomend', function() {
       var currentZoom = map.getZoom();
       $('.location-icon').css('width', currentZoom).css('height', currentZoom);
     });
 
     $.ajax({
       url: "/locations.json",
-      success: function(locations){
+      success: function(locations) {
         $.each(locations, function(i, location) {
-          marker = L.marker([location.latitude, location.longitude], {icon: icon, riseOnHover: true}).addTo(map);
+          marker = L.marker([location.latitude, location.longitude], { icon: icon, riseOnHover: true }).addTo(map);
 
-          marker.on('click', function(){
+          marker.on('click', function() {
             document.location = '/locations/' + location.id;
           });
         });
       },
-      error: function(){
+      error: function() {
         alert('Sorry, looks like something went wrong! Try reloading the page.');
       }
     });

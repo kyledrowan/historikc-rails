@@ -1,7 +1,9 @@
 $('.settings-checkbox input[type=checkbox]').on('change', function(event) {
+  var params = [],
+      url    = 'photos';
+
   $('.settings-checkbox input[type=checkbox]').prop('disabled', true);
 
-  var params = [];
   locationMappedValues = $.map(
     $('.settings-checkbox input[type=checkbox][name=location_mapped]'),
     function(element) {
@@ -19,7 +21,6 @@ $('.settings-checkbox input[type=checkbox]').on('change', function(event) {
     }
   );
 
-  url = 'photos';
   if (locationMappedValues.length === 1) {
     params.push('location_mapped=' + locationMappedValues[0]);
   }
