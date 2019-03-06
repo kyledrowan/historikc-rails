@@ -46,11 +46,12 @@ $(document).ready(function() {
       url: "/locations.json",
       success: function(locations) {
         $.each(locations, function(i, location) {
-          marker = L.marker([location.latitude, location.longitude], { icon: icon, riseOnHover: true }).addTo(map);
+          marker = L.marker([location.latitude, location.longitude], { icon: icon, riseOnHover: true, title: 'sup' }).addTo(map);
 
-          marker.on('click', function() {
-            document.location = '/locations/' + location.id;
-          });
+          marker.on('click', function() { document.location = '/locations/' + location.id; });
+          marker.bindPopup(location.name, { closeButton: false });
+          marker.on('mouseover', function() { this.openPopup(); });
+          marker.on('mouseout', function() { this.closePopup(); });
         });
       },
       error: function() {
