@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'administrate' # Generate an administration panel
+gem 'administrate', git: 'https://github.com/thoughtbot/administrate' # Generate an administration panel
 gem 'bootstrap-sass' # UI components from Bootstrap
 gem 'bourbon'
 gem 'contentdm' # Photo information via ContentDM system
@@ -18,7 +18,7 @@ gem 'omniauth-auth0', '~> 2.0.0'
 gem 'overpass-api-ruby' # Locations from the OpenStreetMap API Client
 gem 'photoswipe-rails' # Images displayed by PhotoSwipe
 gem 'puma'
-gem 'rails', '5.2.2'
+gem 'rails', '~> 6.0.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sqlite3', '~> 1.3.6'
 gem 'turbolinks'
