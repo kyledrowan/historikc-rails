@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'administrate' # Generate an administration panel
-gem 'bootstrap-sass' # UI components from Boostrap
+gem 'bootstrap-sass' # UI components from Bootstrap
 gem 'bourbon'
 gem 'contentdm' # Photo information via ContentDM system
 gem 'font-awesome-rails' # Icons, etc
