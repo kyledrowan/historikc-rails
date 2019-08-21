@@ -16,11 +16,10 @@ module ContentDM
 
       # Pulls photos from ContentDM API and creates records
 
-      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength
+      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize
       def create_photos
         harvester = ContentDm::Harvester.new(CONTENTDM_URL)
 
-        # rubocop:disable Metrics/BlockLength
         harvester.collections.each do |name, _desc|
           next if name.in? EXCLUDED_COLLECTIONS
 
@@ -73,9 +72,8 @@ module ContentDM
             sleep 5
           end
         end
-        # rubocop:enable Metrics/BlockLength
       end
-      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 
       def street_name(street)
         street.gsub('Northeast', '').gsub('Northwest', '')
@@ -90,9 +88,8 @@ module ContentDM
               .gsub(/Trafficway$/, '')
       end
 
-      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
+      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
       def assign_locations
-        # rubocop:disable Metrics/BlockLength
         Photo.where(location_id: nil).each do |photo|
           located = false
 
@@ -135,9 +132,8 @@ module ContentDM
             break
           end
         end
-        # rubocop:enable Metrics/BlockLength
       end
-      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize
     end
   end
 end

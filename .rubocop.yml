@@ -1,10 +1,15 @@
 AllCops:
   Exclude:
-    - 'db/**/*'
+    - !ruby/regexp /\/db\/migrate\/2016.*/
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
 
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
   Max: 120
+
+Metrics/BlockLength:
+  Enabled: False
 
 Metrics/MethodLength:
   Enabled: false

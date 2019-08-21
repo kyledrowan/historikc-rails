@@ -14,7 +14,7 @@ module OpenStreetMap
 
       LOGGER = ActiveSupport::Logger.new('log/locations.log')
 
-      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength
+      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/AbcSize
       def create_locations
         LOGGER.add 0, 'INFO: Beginning location generation'
         overpass = OverpassAPI.new(timeout: TIMEOUT, json: true)
@@ -22,7 +22,6 @@ module OpenStreetMap
         row = 0
         total = 0
 
-        # rubocop:disable Metrics/BlockLength
         (GLOBAL_BOUNDARIES[:s]...GLOBAL_BOUNDARIES[:n]).step(STEP) do |ns|
           row += 1
           column = 0
@@ -116,11 +115,10 @@ module OpenStreetMap
               sleep(PAUSE)
             end
           end
-          # rubocop:enable Metrics/BlockLength
         end
         LOGGER.add 0, "INFO: Total requests: #{total}"
       end
-      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 
       private
 
