@@ -20,7 +20,6 @@ gem 'photoswipe-rails' # Images displayed by PhotoSwipe
 gem 'puma'
 gem 'rails', '~> 6.0.0'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3', '~> 1.3.6'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
@@ -28,6 +27,7 @@ group :development do
   gem 'pry'
   gem 'rubocop', require: false
   gem 'spring'
+  gem 'sqlite3', '~> 1.4.0'
 end
 
 group :production do
